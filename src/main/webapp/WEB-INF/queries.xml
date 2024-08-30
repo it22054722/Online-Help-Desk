@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<queries>
+
+  <query id = "create profile table">
+    <![CDATA[
+    
+    CREATE TABLE profiles(
+    
+    profilenumber varchar(45) NOT NULL,
+    fullname varchar(45),
+    itnumber varchar(45),
+    email varchar(60),
+    phonenumber varchar(10),
+    address varchar(100),
+    username varchar(15),
+    password varchar(5),
+    PRIMARY KEY (profilenumber)
+    );
+    ]]>
+     
+  </query>
+  
+  
+  <query id = "insert profile">
+    <![CDATA[
+     INSERT INTO profiles (profilenumber,fullname,itnumber,email,phonenumber,address,username,password)
+     VALUES(?,?,?,?,?,?,?,?);
+    ]]>
+     
+  </query>
+  
+  <query id = "get profile numbers">
+    <![CDATA[
+     
+     SELECT profilenumber FROM profiles;
+    ]]>
+     
+  </query>
+  
+   <query id = "get all profiles">
+    <![CDATA[
+     
+     SELECT * FROM profiles;
+    ]]>
+     
+  </query>
+  
+   <query id = "get_profile_by_id">
+    <![CDATA[
+     
+     SELECT * FROM profiles WHERE profilenumber =? ;
+    ]]>
+     
+  </query>
+  
+  <query id ="update_profile" >
+    <![CDATA[
+     
+     UPDATE profiles
+     SET fullname = ?,itnumber = ?,email = ?,phonenumber = ?,address = ?,username = ?,password = ?
+     WHERE profilenumber = ?;
+    ]]>
+     
+  </query>
+  
+   <query id = "delete_profile">
+    <![CDATA[
+     
+     DELETE FROM profiles WHERE profilenumber =?;
+    ]]>
+     
+  </query>
+
+</queries>
